@@ -1,4 +1,4 @@
-<!-- AnotherComponent.vue -->
+
 <template>
     <div class="container">
       <StatsCard v-for="item in items" :key="item.id" :color="item.color" :text="item.text" :heading="item.heading" :smallText="item.smallText" />

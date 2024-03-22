@@ -1,5 +1,5 @@
 <template>
-  <!-- Your existing template code -->
+
   <div class="navbar ">
     <v-app-bar
       app
@@ -94,9 +94,9 @@ import { useTheme } from "vuetify";
 import lightLogo from "../assets/Asset 44@3x.png";
 import darkLogo from "../assets/Asset 2@3x.png";
 import { ref, onMounted, onUnmounted } from "vue";
-import { useRoute } from "vue-router"; // Import the useRoute hook
+import { useRoute } from "vue-router"; 
 
-const route = useRoute(); // Access the current route object
+const route = useRoute(); 
 
 const theme = useTheme();
 const darkMode = ref(false);

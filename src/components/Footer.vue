@@ -59,7 +59,7 @@
    
   </v-footer>
   <div class="  d-flex flex-column ga-3 ga-lg-0 flex-lg-row copyright align-center justify-space-between ">
-    <!-- Left section with two lines aligned vertically -->
+
     <div class="left-section">
       <div  class="copyrigth-text text-center text-lg-left" >
         © 2020-2024 Pesaport
@@ -68,8 +68,7 @@
       </div>
       
     </div>
-    
-    <!-- Right section with six Font Awesome icons aligned horizontally -->
+ 
     <div class=" d-flex  ga-2">
       <img v-for="(icon, index) in socialIcons" :src="icon" :icon="icon" class="social-icon"  />
     </div>
@@ -170,7 +169,7 @@ name:'Footer',
 
 .payment-image {
   width: calc(33.33% - 10px); /* Adjust image width as needed */
-  margin: 5px; /* Adjust image margin as needed */
+  margin: 5px; 
 }
 .footer-desc{
     font-size: 13px;

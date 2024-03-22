@@ -1,15 +1,12 @@
 <template>
   <v-container>
     <RouterLink to="/">
-
-    
-    <img
-     
-      src="../assets/Asset 9@3x.png"
-      class="back-icon"
-      style="width: 60px"
-    />
-  </RouterLink>
+      <img
+        src="../assets/Asset 9@3x.png"
+        class="back-icon"
+        style="width: 60px"
+      />
+    </RouterLink>
 
     <v-switch
       v-model="darkMode"
@@ -45,19 +42,18 @@
         </div>
         <!-- Buttons -->
         <div class="d-flex flex-column align-center ga-6">
-          
-          <RouterLink to="signIn"><v-btn color="secondary w-btn py-2 px-8" @click="handleButton1"
-            ><span class="btn-text"
-              >Sign in (if you have an account)</span
-            ></v-btn
-
-          >
-        </RouterLink>
-        <RouterLink to="signUp">
-          <v-btn color="secondary  w-btn py-2 px-8" @click="handleButton2"
-            ><span class="btn-text">Sign Up (Create an account)</span></v-btn
-          >
-        </RouterLink>
+          <RouterLink to="signIn"
+            ><v-btn color="secondary w-btn py-2 px-8" @click="handleButton1"
+              ><span class="btn-text"
+                >Sign in (if you have an account)</span
+              ></v-btn
+            >
+          </RouterLink>
+          <RouterLink to="signUp">
+            <v-btn color="secondary  w-btn py-2 px-8" @click="handleButton2"
+              ><span class="btn-text">Sign Up (Create an account)</span></v-btn
+            >
+          </RouterLink>
         </div>
 
         <p class="text-center">Or continue with your social profile</p>

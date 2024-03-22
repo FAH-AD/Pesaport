@@ -23,15 +23,13 @@
     >
       <!-- Sidebar Header -->
       <v-list-item>
-      <div class="d-flex align-center ga-2" >
-      
-        <img :src="Logo" class="logo" style="width: 20px" />
-        <div class="d-flex align-center">
-         <p class="logo-text1">Pesa</p>
-        <p class="logo-text2">port</p>
+        <div class="d-flex align-center ga-2">
+          <img :src="Logo" class="logo" style="width: 20px" />
+          <div class="d-flex align-center">
+            <p class="logo-text1">Pesa</p>
+            <p class="logo-text2">port</p>
+          </div>
         </div>
-        </div>
-       
       </v-list-item>
 
       <!-- Sidebar Menu -->
@@ -40,9 +38,9 @@
           <v-list-item v-for="(item, index) in menuItems" :key="index" link>
             <div class="d-flex ga-4">
               <img :src="item.icon" style="width: 20px; height: 20px;" />
-              <router-link class="router-text" :to="item.link" :class="{ 'active': item.link === currentRoute }">
+              <Router-link class="router-text" :to="item.link" :class="{ active: isActive(item.link) }" exact>
                 <v-list-item-title class="list-text">{{ item.text }}</v-list-item-title>
-              </router-link>
+              </Router-link>
             </div>
           </v-list-item>
         </v-list>
@@ -50,24 +48,22 @@
         <!-- Sidebar Settings -->
         <div class="d-flex flex-column">
           <v-list-item link>
-            <RouterLink class="router-text" :class="{ 'active':'/dashboard/settings' === currentRoute }" to="/dashboard/settings">
-
-           
-            <div class="d-flex ga-4">
-              <img :src="icon7" style="width: 20px; height: 20px;" />
-              <v-list-item-title class="list-text">Settings</v-list-item-title>
-            </div>
-          </RouterLink>
+            <Router-link class="router-text" :class="{ active: isActive('/dashboard/settings') }" to="/dashboard/settings">
+              <div class="d-flex ga-4">
+                <img :src="icon7" style="width: 20px; height: 20px;" />
+                <v-list-item-title class="list-text">Settings</v-list-item-title>
+              </div>
+            </Router-link>
           </v-list-item>
 
           <!-- Sidebar Logout -->
           <v-list-item link>
-            <RouterLink class="router-text"  to="/signIn">
-            <div class="d-flex ga-4">
-              <img :src="icon8" style="width: 20px; height: 20px;" />
-              <v-list-item-title class="list-text">Logout</v-list-item-title>
-            </div>
-            </RouterLink>
+            <router-link class="router-text" to="/signIn">
+              <div class="d-flex ga-4">
+                <img :src="icon8" style="width: 20px; height: 20px;" />
+                <v-list-item-title class="list-text">Logout</v-list-item-title>
+              </div>
+            </router-link>
           </v-list-item>
         </div>
       </div>
@@ -91,7 +87,7 @@ import icon7 from '../assets/side7.png'
 import icon8 from '../assets/side8.png'
 
 
-let drawer = ref(false); // Closed by default on mobile
+let drawer = ref(false); 
 const theme = useTheme();
 const darkMode = theme.global.current.value.dark;
 const route = useRoute();
@@ -105,22 +101,26 @@ const menuItems = [
   { text: "Profile", icon: icon6, link: '/dashboard/profile' },
 ];
 
-const currentRoute = computed(() => {
-  return route.path;
-});
+
 
 if(window.innerWidth>600){
   drawer=true
 }
 
 const isMobile = computed(() => {
-  return window.innerWidth <= 600; // Adjust this value as per your design
+  return window.innerWidth <= 600; 
 });
 
 const isDesktop = computed(() => {
-  return window.innerWidth > 1024; // Adjust this value as per your design
+  return window.innerWidth > 1024; 
 });
 
+const isActive = (path) => {
+ 
+ return route.path === path;
+
+};
+console.log(isActive)
 </script>
 
 <style>
@@ -153,6 +153,6 @@ color: rgb(var(--v-theme-textColor));
   color: rgb(var(--v-theme-textColor));
 }
 .active {
-  color: #ffc800 ; /* Adjust the color as per your design */
+  color: #ffc800 ; 
 }
 </style>
