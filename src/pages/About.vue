@@ -1,6 +1,6 @@
 <template>
   <div class="px-4 pa-4 pa-lg-7 px-lg-16">
-    <Navbar/>
+    <Navbar />
     <Hero
       :mainHeading="'Welcome to'"
       :subHeading="'Pesaport'"
@@ -8,7 +8,7 @@
       :normalDescription="'At Pesaport, we are dedicated to empowering individuals with the freedom to earn, hold, spend, share, and donate their funds, regardless of their background or origin'"
       page="about"
       contentType="about"
-      reverseRow=false
+      :reverseRow="reverse"
     />
     <AboutFeatures />
     <AboutUsComp />
@@ -24,9 +24,10 @@
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue'; 
+import Navbar from "../components/Navbar.vue";
 import Hero from "../components/Hero.vue";
 import AboutFeatures from "../components/About-features.vue";
+
 import AboutUsComp from "../components/AboutUsComp.vue";
 import Mission from "../components/Mission.vue";
 import Value from "../components/Value.vue";
@@ -38,8 +39,20 @@ import Footer from "../components/Footer.vue";
 export default {
   name: "About",
   components: {
+    Navbar,
     Hero,
+    AboutFeatures,
+    AboutUsComp,
+    Mission,
+    Value,
+    Product,
+    Support,
     Footer,
+  },
+  data() {
+    return {
+      reverse: true,
+    };
   },
 };
 </script>

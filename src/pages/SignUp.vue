@@ -1,23 +1,21 @@
 <template>
-    <div>
-<SignUpComp
-
-/>
-    </div>
+  <div>
+    <SignUpComp />
+  </div>
 </template>
-  
-  <script>
- 
-  import SignUpComp from '../components/SignUpComp.vue'
-  export default {
-    name: "SignUp",
-    
-  };
-  </script>
-  
-  <style>
-  body {
-    font-family: "Poppins", sans-serif;
+
+<script>
+import SignUpComp from "../components/SignUpComp.vue";
+export default {
+  name: "SignUp",
+  components:{
+    SignUpComp
   }
-  </style>
-  
+};
+</script>
+
+<style>
+body {
+  font-family: "Poppins", sans-serif;
+}
+</style>

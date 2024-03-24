@@ -20,15 +20,16 @@
 import Navbar from "../components/Navbar.vue";
 import Hero from "../components/Hero.vue";
 import Services from "../components/Services.vue";
-
 import Product from "@/components/Product.vue";
-
 import Footer from "../components/Footer.vue";
 
 export default {
   name: "About",
   components: {
+    Navbar,
     Hero,
+    Services,
+    Product,
     Footer,
   },
 };

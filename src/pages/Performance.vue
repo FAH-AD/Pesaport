@@ -7,12 +7,10 @@
       :normalDescription="'with expert guidance and innovative solutions tailored to your goals. Maximize returns, minimize risks, and navigate markets with confidence. Trust us to be your partner on the path to nancial success'"
       page="performance"
       contentType="home"
-      reverseRow="false"
+      :reverseRow="reverse"
     />
-
     <PerformanceComponent />
   </div>
-
   <Footer />
 </template>
 
@@ -20,13 +18,19 @@
 import Navbar from "../components/Navbar.vue";
 import Hero from "../components/Hero.vue";
 import PerformanceComponent from "../components/PerformanceComponent.vue";
-
 import Footer from "../components/Footer.vue";
 
 export default {
+  data(){
+    return{
+      reverse:true
+    }
+  },
   name: "Performance",
   components: {
+    Navbar,
     Hero,
+    PerformanceComponent,
     Footer,
   },
 };

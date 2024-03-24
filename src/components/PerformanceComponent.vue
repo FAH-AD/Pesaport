@@ -48,7 +48,7 @@
     <!-- Button -->
     <v-divider class="my-4" color="black" thickness="2"></v-divider>
     <v-btn color="secondary"
-      >Get FUll Report <v-icon @click="goBack">mdi-chevron-right</v-icon></v-btn
+      >Get FUll Report <v-icon>mdi-chevron-right</v-icon></v-btn
     >
   </v-container>
 </template>

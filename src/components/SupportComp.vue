@@ -3,7 +3,7 @@
       <div class="d-flex flex-column ga-6 flex-lg-row align-center align-lg-start">
         <!-- Left part -->
         <div  class="d-flex flex-column ga-8">
-          <!-- Three custom cards aligned vertically -->
+       
           <SupportCard
             :icon="icon1"
             heading="Customer Support"

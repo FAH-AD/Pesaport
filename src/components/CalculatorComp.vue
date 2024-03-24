@@ -1,12 +1,6 @@
 <template>
-  <v-container>
-    <RouterLink to="/">
-      <img
-        src="../assets/Asset 9@3x.png"
-        class="back-icon"
-        style="width: 60px"
-      />
-    </RouterLink>
+  <v-container class="ma-0 pa-0  ">
+   
 
     <v-switch
       v-model="darkMode"
@@ -26,14 +20,24 @@
       </template>
     </v-switch>
     <v-row
-      class="d-flex justify-space-around flex-column flex-lg-row ga-8 ga-lg-0 align-center"
+      class="d-flex flex-nowrap justify-space-around flex-column flex-lg-row ma-0 ga-8 ga-lg-0 align-center"
     >
-      <!-- Left side: Image -->
-      <div>
-        <img src="../assets/Asset 68@3x.png" class="welcome-img" alt="Image" />
-      </div>
+   
+    <v-card class="custom-card h-screen pa-8 d-flex flex-column align-center" :color="backgroundColor">
+    <v-card-title>
+        <v-img src="../assets/yellow-logo.png" height="20"></v-img>
+      <h2 class="text-center">Investment Calculator</h2>
+    </v-card-title>
+    <v-card-text class="text-center cal-desc">This tool helps you to calculate the wealth gain and expected returns for your investment. You can get a rough estimate on the maturity amount for any investment plan, based on a projected return rate and Period.</v-card-text>
+    <img src="../assets/Pesaport_signin.png" ></img>
+    <v-card-actions>
+      <v-btn > Go back</v-btn>
+    </v-card-actions>
+  </v-card>
 
-      <!-- Right side: Text, Buttons, and Icons -->
+     
+
+   <v-col cols="6">
       <div class="d-flex flex-column align-center ga-8">
         <!-- Text -->
         <div>
@@ -76,6 +80,7 @@
           />
         </v-row>
       </div>
+    </v-col>
     </v-row>
   </v-container>
 </template>
@@ -135,6 +140,9 @@ export default {
 }
 .btn-text {
   text-transform: none !important;
+}
+.cal-desc{
+  font-size: 12px;
 }
 
 @media (max-width: 600px) {

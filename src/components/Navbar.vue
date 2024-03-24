@@ -1,6 +1,5 @@
 <template>
-  <!-- Your existing template code -->
-  <div class="navbar ">
+  <div class="navbar">
     <v-app-bar
       app
       color="transparent"
@@ -9,25 +8,49 @@
       absolute
       ref="navbar"
     >
-    <RouterLink to="/">
-
-   
-      <img
-        class="mr-lg-7 mt-5"
-        :src="darkMode ? darkLogo : lightLogo"
-        alt="Logo"
-        style="height: 40px; cursor: pointer"
-      />
-    </RouterLink>
+      <RouterLink to="/">
+        <img
+          class="mr-lg-7 mt-5"
+          :src="darkMode ? darkLogo : lightLogo"
+          alt="Logo"
+          style="height: 40px; cursor: pointer"
+        />
+      </RouterLink>
       <v-toolbar-title app height="auto" class="d-lg-block d-none text-center">
         <v-toolbar-items>
-          <p
-            class="cutom-btn"
-           
-            v-for="(item, index) in menuItems"
-            :key="index"
-          >
-            <RouterLink :to="item.link" class="router-link"  :class="{ active: isActive(item.link) }">{{ item.heading }}</RouterLink>
+          <p class="cutom-btn" v-for="(item, index) in menuItems" :key="index">
+            <template v-if="index === 2 && item.dropdown">
+              <div class="text-center">
+                <v-menu open-on-hover>
+                  <template v-slot:activator="{ props }">
+                    <RouterLink
+                      to="/products"
+                      v-bind="props"
+                      class="router-link"
+                      :class="{ active: isActive('/products') }"
+                    >
+                      Products & Services
+                    </RouterLink>
+                  </template>
+
+                  <v-list bg-color="background">
+                    <v-list-item v-for="(item, index) in items" :key="index">
+                      <RouterLink :to="item.link" class="product-link">{{
+                        item.title
+                      }}</RouterLink>
+                    </v-list-item>
+                  </v-list>
+                </v-menu>
+              </div>
+            </template>
+            <template v-else>
+              <RouterLink
+                :to="item.link"
+                class="router-link"
+                :class="{ active: isActive(item.link) }"
+                >{{ item.heading }}</RouterLink
+              >
+            </template>
           </p>
         </v-toolbar-items>
       </v-toolbar-title>
@@ -38,21 +61,17 @@
           <v-icon v-else>mdi-close</v-icon>
         </v-btn>
       </v-toolbar-items>
-      <v-toolbar-items class="d-lg-flex align-center ">
+      <v-toolbar-items class="d-lg-flex align-center">
         <RouterLink to="/welcome">
-
-      
-        <div class="button-default button-slanted d-none d-lg-block sign-in">
-          <span class="button-slanted-content">Sign in</span>
-        </div>
-      </RouterLink>
-
-      <RouterLink to="/signUp">
-        <div class="button-default button-slanted  d-none d-lg-block sign-up">
-          <span class="button-slanted-content">Sign Up</span>
-        </div>
-      </RouterLink>
-
+          <div class="button-default button-slanted d-none d-lg-block sign-in">
+            <span class="button-slanted-content">Sign in</span>
+          </div>
+        </RouterLink>
+        <RouterLink to="/signUp">
+          <div class="button-default button-slanted d-none d-lg-block sign-up">
+            <span class="button-slanted-content">Sign Up</span>
+          </div>
+        </RouterLink>
         <v-switch
           v-model="darkMode"
           color="primary"
@@ -82,7 +101,12 @@
     >
       <v-list>
         <v-list-item v-for="(item, index) in responsiveMenu" :key="index">
-          <RouterLink :to="item.link" class="router-link" :class="{ active: isActive(item.link) }" >{{ item.heading }}</RouterLink>
+          <RouterLink
+            :to="item.link"
+            class="router-link"
+            :class="{ active: isActive(item.link) }"
+            >{{ item.heading }}</RouterLink
+          >
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -94,20 +118,20 @@ import { useTheme } from "vuetify";
 import lightLogo from "../assets/Asset 44@3x.png";
 import darkLogo from "../assets/Asset 2@3x.png";
 import { ref, onMounted, onUnmounted } from "vue";
-import { useRoute } from "vue-router"; // Import the useRoute hook
+import { useRoute } from "vue-router";
 
-const route = useRoute(); // Access the current route object
+const route = useRoute();
 
 const theme = useTheme();
 const darkMode = ref(false);
 const isFixed = ref(false);
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener("scroll", handleScroll);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener("scroll", handleScroll);
 });
 
 const handleScroll = () => {
@@ -115,7 +139,7 @@ const handleScroll = () => {
 
   if (scrollPosition > 100 && !isFixed.value) {
     isFixed.value = true;
-    console.log(isFixed.value)
+    console.log(isFixed.value);
   } else if (scrollPosition <= 100 && isFixed.value) {
     isFixed.value = false;
   }
@@ -128,24 +152,32 @@ const toggleTheme = () => {
 };
 
 const isActive = (path) => {
- 
   return route.path === path;
 };
-
 </script>
 
 <script>
-import { ref } from 'vue';
+import { ref } from "vue";
 
 export default {
-  name:'Navbar',
+  name: "Navbar",
   data() {
     return {
       drawer: false,
+      items: [
+        { title: "  Products & Services", link: "/products" },
+        { title: "Calculator", link: "/calculator" },
+      ],
       menuItems: [
         { heading: "Home", link: "/" },
         { heading: "About", link: "/about" },
-        { heading: "Product & Services", link: "/products" },
+        {
+          heading: "Dropdown",
+          dropdown: [
+            { heading: "Dropdown Item 1", link: "/dropdown1" },
+            { heading: "Dropdown Item 2", link: "/dropdown2" },
+          ],
+        },
         { heading: "Performance", link: "/performance" },
         { heading: "Support", link: "/support" },
       ],
@@ -169,8 +201,6 @@ export default {
 </script>
 
 <style scoped>
-
-
 .router-link {
   text-decoration: none;
   padding: 3px 10px;
@@ -179,6 +209,7 @@ export default {
   color: rgb(var(--v-theme-textColor));
   &:hover {
     color: rgb(var(--v-theme-primary));
+    cursor: pointer;
   }
 }
 
@@ -194,18 +225,16 @@ export default {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
-.custom-switch{
+.custom-switch {
   position: inherit;
 }
 
 .active {
-  
   color: #ffa000 !important;
 }
 .custom-btn {
   padding: 3px 10px;
   font-size: 14px;
- 
 
   &:hover {
     color: rgb(var(--v-theme-primary));
@@ -221,7 +250,15 @@ export default {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
 }
-
+.product-link {
+  font-size: 12px;
+  text-decoration: none;
+  color: black;
+  &:hover {
+    color: rgb(var(--v-theme-primary));
+    cursor: pointer;
+  }
+}
 .button-default {
   color: black;
   text-align: center;
@@ -286,6 +323,4 @@ export default {
     display: flex;
   }
 }
-
-
 </style>

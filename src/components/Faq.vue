@@ -80,7 +80,7 @@
   }
   
   .answer-open {
-    max-height: 1000px; /* Set a large enough value for the max-height to ensure full expansion */
+    max-height: 1000px; 
   }
   .faq-btn{
     border-radius: 20px !important;

@@ -1,4 +1,4 @@
-<!-- AnotherComponent.vue -->
+
 <template>
     <div class="container">
       <StatsCard v-for="item in items" :key="item.id" :color="item.color" :text="item.text" :heading="item.heading" :smallText="item.smallText" />
@@ -7,6 +7,7 @@
   
   <script setup>
  import StatsCard from "./Cards/StatsCard.vue";
+
   
   const items = [
     { id: 1, color: 'yellow', text: 'Total Investment', heading: 'TSH. 2,340,000', smallText: 'USD 927.91 In past 3 month' },
@@ -14,6 +15,16 @@
     { id: 3, color: 'red', text: 'Total Withdraw', heading: 'TSH. 540,000', smallText: 'USD 214.13 Withdraw Now' },
   ];
   </script>
+  <script>
+
+
+ export default {
+    name:'Stats',
+    components:{
+      StatsCard
+    }
+  }
+</script>
   
   <style>
   .container {

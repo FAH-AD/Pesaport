@@ -31,7 +31,7 @@
               <p class="test-desg">{{ item.designation }}</p>
             </div>
           </div>
-          <!-- Icon and buttons -->
+          
           <v-row>
            
           </v-row>
