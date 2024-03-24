@@ -8,6 +8,9 @@
 import LoginComp from "../components/LoginComp.vue";
 export default {
   name: "SignIn",
+  components:{
+    LoginComp
+  }
 };
 </script>
 

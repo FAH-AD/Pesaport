@@ -1,16 +1,16 @@
 <template>
     <div>
-<WelcomeComp/>
+<CalculatorComp/>
     </div>
 </template>
   
   <script>
  
-  import WelcomeComp from '../components/WelcomeComp.vue'
+  import CalculatorComp from '../components/CalculatorComp.vue';
+
   export default {
     name: "Welcome",
     components: {
-      WelcomeComp
       
     },
   };

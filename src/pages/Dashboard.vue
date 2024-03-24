@@ -13,6 +13,10 @@ import TopBar from "../components/TopBar.vue";
 
 export default {
   name: "Dashboard",
+  components:{
+    SideBar,
+    TopBar,
+  }
 };
 </script>
 

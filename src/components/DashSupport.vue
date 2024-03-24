@@ -7,6 +7,9 @@
   <script>
   import SupportComp from './SupportComp.vue'
   export default {
+    components:{
+      SupportComp
+    }
    
   };
   </script>

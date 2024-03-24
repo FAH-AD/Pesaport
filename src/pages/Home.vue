@@ -11,11 +11,11 @@
       contentType="home"
      
     />
-    <Work />
-    <WhyUs />
-    <Features />
+    <Work/>
+    <WhyUs/>
+    <Features/>
     <Testimonial/>
-    <Faq />
+    <Faq/>
   </div>
   <Footer />
 </template>
@@ -24,7 +24,7 @@
 import Navbar from "../components/Navbar.vue";
 import HeroHome from "../components/HeroHome.vue";
 import Work from "../components/Work.vue";
-import WhyUS from "../components/WhyUs.vue";
+import WhyUs from "@/components/WhyUs.vue";
 import Features from "../components/Features/Features.vue";
 
 import Faq from "../components/Faq.vue";
@@ -38,7 +38,11 @@ export default {
     Navbar,
     HeroHome,
     Work,
-    WhyUS,
+    WhyUs,
+    Features,
+    Faq,
+    Footer,
+    Testimonial,
   },
 };
 </script>

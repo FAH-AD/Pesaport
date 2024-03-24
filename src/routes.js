@@ -3,6 +3,7 @@ import {createWebHistory,createRouter} from 'vue-router'
 import Home from './pages/Home.vue'
 import About from './pages/About.vue'
 import Products from './pages/Products.vue'
+import Calculator from './pages/Calculator.vue'
 import Performance from './pages/Performance.vue'
 import Support from './pages/Support.vue'
 import Welcome from './pages/Welcome.vue'
@@ -32,6 +33,11 @@ const routes = [
     path: '/products',
     name: 'Products',
     component: Products
+  },
+  {
+    path: '/calculator',
+    name: 'Calculator',
+    component: Calculator
   },
   {
     path: '/performance',

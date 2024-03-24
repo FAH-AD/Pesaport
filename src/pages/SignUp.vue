@@ -8,6 +8,9 @@
 import SignUpComp from "../components/SignUpComp.vue";
 export default {
   name: "SignUp",
+  components:{
+    SignUpComp
+  }
 };
 </script>
 
