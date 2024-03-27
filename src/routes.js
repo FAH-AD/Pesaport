@@ -18,6 +18,7 @@ import DashSupport from './components/DashSupport.vue'
 import ProfileComp from './components/ProfileComp.vue'
 import SettingsComp from './components/SettingsComp.vue'
 import ChooseAccount from './components/ChooseAccount.vue'
+import PhoneVer from './pages/Phone-ver.vue'
 const routes = [
   {
     path: '/',
@@ -58,6 +59,11 @@ const routes = [
     path: '/signIn',
     name: 'signIn',
     component: SignIn
+  },
+  {
+    path: '/phone-verification',
+    name: 'phone-verification',
+    component: PhoneVer
   },
   {
     path: '/signUp',

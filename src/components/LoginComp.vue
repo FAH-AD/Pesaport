@@ -53,7 +53,8 @@
             dense
             class="w-text-field"
           ></v-text-field>
-          <RouterLink to="dashboard/home">
+          <!-- add logic of directing either to dashboard or to verification page on router link -->
+          <RouterLink to="phone-verification">
             <v-btn color="secondary w-btn py-2 px-8" @click="handleSignIn">
               <span class="btn-text">Sign In</span></v-btn
             >
