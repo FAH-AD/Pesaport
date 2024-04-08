@@ -39,7 +39,7 @@
           />
           <!-- Text Fields -->
           <div class="mt-5">
-            <p class="phone-mh">Mobile Number Confirmation</p>
+            <p class="phone-mh">{{ heading }}</p>
             <p class="phone-desc">
               Please enter the pin code you have received from Pesaport
             </p>
@@ -120,6 +120,13 @@ const pinCode = ref('');
 </script>
 <script>
 export default {
+  props: {
+   
+    heading: {
+      type: String,
+      required: true // This prop is required
+    }
+  },
   methods: {
     goBack() {
       this.$router.go(-1); // Go back to the previous page

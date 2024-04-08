@@ -1,11 +1,11 @@
 <template>
     <div>
-      <PhoneComp heading="Phone Verification"/>
+      <PhoneComp heading="Mail Verification"/>
     </div>
   </template>
   
   <script>
-  import PhoneComp from "../components/PhoneComp.vue";
+  import PhoneComp from "./PhoneComp.vue";
   export default {
     name: "Phone-ver",
     components:{

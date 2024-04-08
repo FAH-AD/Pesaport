@@ -10,7 +10,9 @@ import Support from './pages/Support.vue'
 import Welcome from './pages/Welcome.vue'
 import SignIn from './pages/SignIn.vue'
 import SignUp from './pages/SignUp.vue'
+
 import Dashboard from './pages/Dashboard.vue'
+import Mail_verification from './components/Mail-confirmation.vue'
 import NotificationComp from './components/NotificationComp.vue'
 import InvestmentComp from './components/InvestmentComp.vue'
 import TransactionsComp from './components/TransactionsComp.vue'
@@ -70,6 +72,11 @@ const routes = [
     path: '/phone-verification',
     name: 'phone-verification',
     component: PhoneVer
+  },
+  {
+    path: '/mail-verification',
+    name: 'mail-verification',
+    component: Mail_verification
   },
   {
     path: '/signUp',

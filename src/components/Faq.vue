@@ -19,7 +19,10 @@
         </v-col>
       </v-row>
       <v-btn class="faq-btn mt-8">
-        <span class="mr-2 text-black">Contact us</span> 
+        <RouterLink to="/support" >
+          <span class="mr-2 text-black">Contact us</span> 
+        </RouterLink>
+       
         <img src="../assets/up-right.png" style="width: 15px;"/>
       </v-btn>
     </div>
