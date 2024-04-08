@@ -48,6 +48,14 @@
         <!-- Sidebar Settings -->
         <div class="d-flex flex-column">
           <v-list-item link>
+            <Router-link class="router-text" :class="{ active: isActive('/dashboard/calculator') }" to="/calculator">
+              <div class="d-flex ga-4">
+                <img :src="icon8" style="width: 20px; height: 20px;" />
+                <v-list-item-title class="list-text">Calculator</v-list-item-title>
+              </div>
+            </Router-link>
+          </v-list-item>
+          <v-list-item link>
             <Router-link class="router-text" :class="{ active: isActive('/dashboard/settings') }" to="/dashboard/settings">
               <div class="d-flex ga-4">
                 <img :src="icon7" style="width: 20px; height: 20px;" />
@@ -60,7 +68,7 @@
           <v-list-item link>
             <router-link class="router-text" to="/signIn">
               <div class="d-flex ga-4">
-                <img :src="icon8" style="width: 20px; height: 20px;" />
+                <img :src="icon9" style="width: 20px; height: 20px;" />
                 <v-list-item-title class="list-text">Logout</v-list-item-title>
               </div>
             </router-link>
@@ -84,7 +92,8 @@ import icon4 from '../assets/side4.png'
 import icon5 from '../assets/side5.png'
 import icon6 from '../assets/side6.png'
 import icon7 from '../assets/side7.png'
-import icon8 from '../assets/side8.png'
+import icon8 from '../assets/calculator-solid.svg'
+import icon9 from '../assets/side8.png'
 
 
 let drawer = ref(false); 

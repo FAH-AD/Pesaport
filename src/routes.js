@@ -5,6 +5,7 @@ import About from './pages/About.vue'
 import Products from './pages/Products.vue'
 import Calculator from './pages/Calculator.vue'
 import Performance from './pages/Performance.vue'
+import InvestNow from './pages/InvestNow.vue'
 import Support from './pages/Support.vue'
 import Welcome from './pages/Welcome.vue'
 import SignIn from './pages/SignIn.vue'
@@ -49,6 +50,11 @@ const routes = [
     path: '/support',
     name: 'support',
     component: Support
+  },
+  {
+    path: '/investNow',
+    name: 'investNow',
+    component: InvestNow
   },
   {
     path: '/welcome',
@@ -110,6 +116,11 @@ const routes = [
         path: 'profile',
         name:'profile',
         component:ProfileComp
+      },
+      {
+        path: 'calculator',
+        name:'calculator',
+        component:Calculator
       },
       {
         path: 'settings',

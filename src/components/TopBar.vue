@@ -62,12 +62,16 @@
       </div>
 
       <!-- Image -->
+      <RouterLink to="/dashboard/profile">
+
+    
       <img
         src="../assets/profile-pic.png"
         alt="Image"
         style="width: 50px; height: 50px"
         class="image"
       />
+    </RouterLink>
     </div>
   </div>
 </template>

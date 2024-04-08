@@ -31,10 +31,10 @@
     <v-card-text class="text-center cal-desc">This tool helps you to calculate the wealth gain and expected returns for your investment. You can get a rough estimate on the maturity amount for any investment plan, based on a projected return rate and Period.</v-card-text>
     <img src="../assets/Pesaport_signin.png" class="cal-img" ></img>
     <div class="d-flex flex-column align-center" >
-      <Router-link  to="/"
-      >
-      <v-btn variant="outlined"  class="cal-btn" >    <v-icon>mdi-arrow-left</v-icon> Go back to Dashboard</v-btn>
-    </Router-link>
+      
+      
+      <v-btn  @click="goBack()"   variant="outlined"  class="cal-btn" >    <v-icon>mdi-arrow-left</v-icon> Go back to Dashboard</v-btn>
+
 
       <p>© 2024 Pesaport LTD.</p>
     </div>

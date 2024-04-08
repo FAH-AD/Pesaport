@@ -180,6 +180,7 @@ export default {
         },
         { heading: "Performance", link: "/performance" },
         { heading: "Support", link: "/support" },
+        { heading: "Invest Now", link: "/investNow" },
       ],
       responsiveMenu: [
         { heading: "Home", link: "/" },
@@ -189,6 +190,7 @@ export default {
         { heading: "Support", link: "/support" },
         { heading: "Sign In", link: "/welcome" },
         { heading: "Sign Up", link: "/signUp" },
+        { heading: "Invest Now", link: "/investNow" },
       ],
     };
   },
