@@ -1,8 +1,8 @@
 <template>
-  <div class="d-flex align-center ga-6 ma-4">
+  <div class="d-flex  flex-column flex-lg-row align-center ga-6 ma-4">
     <OverviewCard />
     <div class="d-flex flex-column ga-5">
-      <div class="d-flex align-center justify-space-between ga-4">
+      <div class="d-flex flex-column flex-lg-row align-center justify-space-between ga-4">
         <StatsCard
           :text="item[0].text"
           :heading="item[0].heading"
@@ -22,7 +22,7 @@
           :ele_desc1="item[1].ele_desc1"
         />
       </div>
-      <div class="d-flex align-center justify-space-between ga-4">
+      <div class="d-flex align-center  flex-column flex-lg-row justify-space-between ga-4">
         <StatsCard
           :text="item[2].text"
           :heading="item[2].heading"

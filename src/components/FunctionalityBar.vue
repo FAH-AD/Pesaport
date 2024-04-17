@@ -1,6 +1,6 @@
 <template>
   <v-card class="pa-4 ma-4" elevation="0" color="sidebarbg">
-    <div class="d-flex justify-space-between">
+    <div class="d-flex flex-column flex-lg-row justify-space-between">
       <div>
         <div class="text-h5 font-weight-bold">Pesaport Dashboard</div>
         <div>{{ subheading }}</div>

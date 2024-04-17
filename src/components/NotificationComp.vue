@@ -1,5 +1,7 @@
 <template>
   <Stats/>
+ <InvestTable/>
+
   <div class="container">
     <!-- activities -->
     <v-col cols="12" lg="4" class="left-part">
@@ -117,6 +119,7 @@
 <script setup>
 import { ref } from 'vue';
 import Stats from './Stats.vue';
+import InvestTable from './InvestTable.vue';
 import user from '../assets/side6.png'
 const leftHeading = 'Recently Activities';
 const leftButtonText = 'Left Button';
