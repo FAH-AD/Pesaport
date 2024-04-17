@@ -16,6 +16,7 @@ import Mail_verification from './components/Mail-confirmation.vue'
 import NotificationComp from './components/NotificationComp.vue'
 import InvestmentComp from './components/InvestmentComp.vue'
 import TransactionsComp from './components/TransactionsComp.vue'
+import DashProducts from './components/DashProducts.vue'
 import AccountsComp from './components/AccountsComp.vue'
 import DashSupport from './components/DashSupport.vue'
 import ProfileComp from './components/ProfileComp.vue'
@@ -123,6 +124,11 @@ const routes = [
         path: 'profile',
         name:'profile',
         component:ProfileComp
+      },
+      {
+        path: 'dashproducts',
+        name:'dashproducts',
+        component:DashProducts
       },
       {
         path: 'calculator',

@@ -1,48 +1,30 @@
 <template>
-
   <h2 class="method-head" v-if="!showHowToInvest">
     You can now invest via multiple <br /> payment providers
   </h2>
   <v-row class="justify-center align-center flex-column flex-lg-row ga-4">
-
-
-    <v-carousel  v-if="!showHowToInvest" :items-per-page="3" hide-delimiters continuous max-width="400" height="120">
-      <v-carousel-item class="mr-8" v-for="(item, index) in items" :key="index">
-        <v-col class="payment-method align-center  justify-center d-flex flex-column flex-lg-row ga-4 ga-lg-16 " cols="12" lg="12">
-          <div class="d-flex flex-column">
-
-
-            <img :src="item[0].image" class="rounded-image" @click="openHowToInvest(index)"></img>
-            <div class="text-center">{{ item[0].text }}</div>
-          </div>
-          <div class="d-flex flex-column">
-
-
-            <img :src="item[1].image" class="rounded-image" @click="openHowToInvest(index)"></img>
-            <div class="text-center">{{ item[1].text }}</div>
-          </div>
-          <div class="d-flex flex-column">
-
-
-            <img :src="item[2].image" class="rounded-image" @click="openHowToInvest(index)"></img>
-            <div class="text-center">{{ item[2].text }}</div>
-          </div>
-          <div class="d-flex flex-column">
-
-
-            <img :src="item[3].image" class="rounded-image" @click="openHowToInvest(index)"></img>
-            <div class="text-center">{{ item[3].text }}</div>
-          </div>
-          <div class="d-flex flex-column">
-
-
-            <img :src="item[4].image" class="rounded-image" @click="openHowToInvest(index)"></img>
-            <div class="text-center">{{ item[4].text }}</div>
-          </div>
-
-
-        </v-col>
-      </v-carousel-item>
+    <v-carousel v-if="!showHowToInvest" hide-delimiters continuous max-width="400" height="120">
+      <template v-if="isMobile">
+        <v-carousel-item v-for="(item, index) in items1" :key="index">
+          <v-col class="payment-method align-center justify-center d-flex flex-column flex-lg-row ga-4 ga-lg-16" cols="12" lg="12">
+            <div  class="d-flex flex-column">
+              <img :src="item.image" class="rounded-image" @click="openHowToInvest(index, i)"></img>
+              <div class="text-center">{{ item.text }}</div>
+            </div>
+          </v-col>
+        </v-carousel-item>
+        
+      </template>
+      <template v-else>
+        <v-carousel-item v-for="(item, index) in items" :key="index">
+          <v-col class="payment-method align-center justify-center d-flex flex-column flex-lg-row ga-4 ga-lg-16" cols="12" lg="12">
+            <div class="d-flex flex-column" v-for="(method, i) in item" :key="i">
+              <img :src="method.image" class="rounded-image" @click="openHowToInvest(index, i)"></img>
+              <div class="text-center">{{ method.text }}</div>
+            </div>
+          </v-col>
+        </v-carousel-item>
+      </template>
     </v-carousel>
     <v-col v-if="showHowToInvest" cols="12">
       <v-icon class="back-icon" @click="closeHowToInvest()">mdi-arrow-left</v-icon>
@@ -63,7 +45,7 @@ import method1 from '../assets/payment2.png';
 import method2 from '../assets/payment3.png';
 import method3 from '../assets/payment1.png';
 import method4 from '../assets/payment5.png';
-import method5 from '../assets/payment7.png'
+import method5 from '../assets/payment7.png';
 
 const items = [
   [
@@ -72,20 +54,30 @@ const items = [
     { image: method3, text: 'Airtel money' },
     { image: method4, text: 'Azam pesa' },
     { image: method5, text: 'Bank' }
-  ],
-
+  ]
 ];
+const items1 = [
+  
+    { image: method1, text: 'Tigopesa' },
+    { image: method2, text: 'M-pesa' },
+    { image: method3, text: 'Airtel money' },
+    { image: method4, text: 'Azam pesa' },
+    { image: method5, text: 'Bank' }
+  
+];
+
 let selectedItem = ref(null);
 let showHowToInvest = ref(false);
 
-const openHowToInvest = (index) => {
+const openHowToInvest = (index, i) => {
   selectedItem.value = index;
   showHowToInvest.value = true;
 };
+
 const closeHowToInvest = () => {
   showHowToInvest.value = false;
-  console.log(showHowToInvest.value)
-}
+};
+
 const heading = [
   "Using Tigopesa",
   "Using M-Paise"
@@ -100,9 +92,6 @@ const images1 = [
   [
     { src: image1 },
     { src: image2 }
-  ],
-  [
-    // Define images for second option
   ]
 ];
 
@@ -110,9 +99,6 @@ const images2 = [
   [
     { src: image3 },
     { src: image4 }
-  ],
-  [
-    // Define images for second option
   ]
 ];
 
@@ -123,10 +109,7 @@ const points1 = [
     { title: "Fill the windows appears with the details", subtitle: "Subtitle 3" },
     { title: "In few second you will get Push notification from Tigopesa telling to confirm the payment to pesaport " },
     { title: " Enter your pin to confirm " },
-    { title: " The payment should be successYou should be able to see the investment on the portal" },
-  ],
-  [
-    // Data for the second option
+    { title: " The payment should be successYou should be able to see the investment on the portal" }
   ]
 ];
 
@@ -139,13 +122,27 @@ const points2 = [
     { title: " Enter Investment account number for the product you invest as “ Kunbukumbu number”" },
     { title: " Enter the amount you want to deposit on “Weka kiasi”" },
     { title: " Confirm the payment by entering your pin" },
-    { title: "  The payment should be success" },
-
-  ],
-  [
-    // Data for the second option
+    { title: "  The payment should be success" }
   ]
 ];
+
+const isMobile = ref(false);
+
+// Check if the viewport is mobile
+if (window.innerWidth <= 768) {
+  isMobile.value = true;
+} else {
+  isMobile.value = false;
+}
+
+// Update isMobile when window is resized
+window.addEventListener('resize', () => {
+  if (window.innerWidth <= 768) {
+    isMobile.value = true;
+  } else {
+    isMobile.value = false;
+  }
+});
 
 </script>
 

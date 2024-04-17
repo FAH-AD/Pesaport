@@ -1,39 +1,37 @@
 <template>
   <Stats/>
   <div class="container">
-    <!-- Left Part -->
-    <v-col cols="12" lg="8" class="left-part">
+    <!-- activities -->
+    <v-col cols="12" lg="4" class="left-part">
       <div class="box">
         <div class="d-flex justify-space-between align-center">
           <p>{{ leftHeading }}</p>
           <div class="n-dropdown">
-            <v-select
-              theme="light"
-              density="compact"
-              label="Recently"
-              :items="['1 Day', '2 Days', 'week']"
-              variant="outlined"
-            ></v-select>
+           view All
           </div>
         </div>
         
-        <hr>
+        <hr class="mt-4">
         <div class="description">
           <div
             v-for="(line, index) in leftDescription"
             :key="index"
-            class="flex-column flex-lg-row d-flex ga-2 mt-4"
-            :class="{ 'bg-color': index % 2 === 0 }"
+            class="flex-column flex-lg-row d-flex align-center mt-4"
+          
             @click="openModal(line)"
           >
-            <p class="heading-color">{{ line.heading }}</p>
+          <img class="icon" :src="user" style="width:20px;height:20px"></img>
+          <div>
+
+         
+            <p class="product-head">{{ line.heading }}</p>
             <p class="notification-text">{{ line.text }}</p>
+          </div>
           </div>
         </div>
       </div>
     </v-col>
-
-    <!-- Right Part -->
+    <!-- notifications -->
     <v-col cols="12" lg="4" class="left-part">
       <div class="box">
         <div class="d-flex justify-space-around align-center">
@@ -55,6 +53,40 @@
         </div>
       </div>
     </v-col>
+    <!-- top products -->
+    <v-col cols="12" lg="4" class="left-part">
+      <div class="box">
+        <div class="d-flex justify-space-between align-center">
+          <div>
+            <p class="text-top font-weight-bold">Top Invested Product</p>
+          <p class="text-top">in last 30 days top invested schemes</p>
+          </div>
+          
+         
+          <v-icon>mdi-dots-horizontal</v-icon>
+          
+        </div>
+        
+        <hr>
+        <div class="description">
+          <div
+            v-for="(line, index) in products"
+            :key="index"
+            class="mt-4"
+        
+          >
+          <div class="flex-column flex-lg-row justify-space-between d-flex ga-2 ">
+            <p class="product-head">{{ line.heading }}</p>
+            <p class="notification-text">{{ line.text }}</p>
+          </div>
+           <hr/>
+          </div>
+        
+        </div>
+      </div>
+    </v-col>
+
+    
 
     <!-- Modal -->
     <v-dialog v-model="modalOpen" max-width="600">
@@ -85,12 +117,18 @@
 <script setup>
 import { ref } from 'vue';
 import Stats from './Stats.vue';
+import user from '../assets/side6.png'
 const leftHeading = 'Recently Activities';
 const leftButtonText = 'Left Button';
 const leftDescription = [
-  { heading: 'New Ipo offerings:', text: 'Users are exploring and investing in newly available IPOs, executing buy orders to acquire shares of promising companies ' },
-  { heading: 'Earnings Reports Analysis:', text: 'Users are exploring and investing in newly available IPOs, executing buy orders to acquire shares of promising companies ' },
-  { heading: 'New IPO offerings:', text: 'Users are exploring and investing in newly available IPOs, executing buy orders to acquire shares of promising companies ' },
+  { heading: 'Fahad Created User 1000:', text: '2024-02-07 17:38:39 ' },
+  { heading: 'Fahad Made Transaction ', text: '2024-01-07 12:38:39 ' },
+  { heading: 'Fahad Invested on products ', text: '2024-01-07 12:38:39 ' },
+];
+const products = [
+  { heading: 'Youth Fund', text: '60% ' },
+  { heading: 'Pesa Fund', text: '50% ' },
+  { heading: 'Mtoto Funct', text: '50% ' },
 ];
 
 const rightHeading = 'Notifications';
@@ -117,6 +155,9 @@ const closeModal = () => {
 </script>
 
 <style scoped>
+.text-top{
+  font-size: 12px;
+}
 .container {
   display: flex;
   align-items: start;
@@ -126,8 +167,13 @@ const closeModal = () => {
   font-size: 13px;
   text-wrap: nowrap;
 }
+.product-head{
+  font-size: 13px;
+  text-wrap: nowrap;
+}
 .n-dropdown {
-  width: 150px;
+ border-bottom: 2px solid rgb(var(--v-theme-secondary));
+
 }
 .box {
   border-radius: 10px;
@@ -140,6 +186,7 @@ const closeModal = () => {
 .notification-text {
   font-size: 12px;
 }
+
 .hr {
   margin: 10px 0;
   border: 0;

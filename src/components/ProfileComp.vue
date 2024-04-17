@@ -29,7 +29,7 @@
       </v-tab>
     </v-tabs>
 
-    <v-card-text>
+    <v-card-text class="pa-0 pa-lg-4">
       <v-window v-model="tab">
         <v-window-item
           v-for="(tabItem, index) in tabs"
@@ -37,7 +37,12 @@
           :value="tabItem.value"
         >
           <div v-if="!showViewPage[tabItem.value]">
+            <v-row class="justify-space-between align-center ma-3">
             <h2 class="ma-4 mb-10">{{ tabItem.label }}</h2>
+            <div >
+              <v-icon @click="resetForm(tabItem.value)">mdi-close</v-icon>
+              </div>
+            </v-row>
             <!-- Personal Information -->
             <div
               class="d-flex flex-column ga-10"
@@ -501,6 +506,7 @@ import icon5 from "../assets/lock-solid.svg";
 export default {
   data() {
     return {
+      tempFormData: {},
       tabs: [
         { label: "Personal Info.", value: "personalInfo", icon: icon1 },
         { label: "Address", value: "contactDetails", icon: icon2 },
@@ -564,6 +570,11 @@ export default {
         reader.readAsDataURL(file);
       }
     },
+    
+    resetForm(tabValue) {
+    
+    this.showViewPage[tabValue] = true;
+  },
     submitForm(tabValue) {
       // Check if all required fields are filled
       if (this.validateForm(tabValue)) {

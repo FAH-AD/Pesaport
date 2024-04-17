@@ -19,8 +19,8 @@
         </v-col>
       </v-row>
       <v-btn class="faq-btn mt-8">
-        <RouterLink to="/support" >
-          <span class="mr-2 text-black">Contact us</span> 
+        <RouterLink class="text-black" to="/support" >
+          <span class="mr-2 ">Contact us</span> 
         </RouterLink>
        
         <img src="../assets/up-right.png" style="width: 15px;"/>
@@ -57,7 +57,9 @@
     margin-bottom: 2rem;
     font-weight: 800px;
   }
-
+.text-black{
+  text-decoration: none;
+}
  .faq-container{
     padding: 20px 50px;
  }
