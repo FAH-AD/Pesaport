@@ -17,25 +17,6 @@
     </div>
     <!-- Custom Select Display -->
     <div class="d-flex align-center switch-part ga-5">
-
-      <v-switch
-    v-model="darkMode"
-    color="primary"
-    class="mt-5 top-switch"
-    @change="toggleTheme()"
->
-    <!-- Use slots within the render function -->
-    <template v-slot:thumb="{ attrs }">
-        <v-icon v-bind="attrs">
-            {{ darkMode ? "mdi-weather-sunny" : "mdi-weather-night" }}
-        </v-icon>
-    </template>
-    <template v-slot:track="{ attrs }">
-        <v-icon v-bind="attrs">
-            {{ darkMode ? "mdi-moon-waning-crescent" : "mdi-white-balance-sunny" }}
-        </v-icon>
-    </template>
-</v-switch>
       <div class="custom-select" @click="toggleDropdown">
         <img src="../assets/flag.png" alt="" class="flag-icon" />
 
@@ -56,44 +37,104 @@
       </v-menu> -->
 
       <!-- Two Icons -->
-      <div class=" d-flex ga-3">
-        <img  :src="darkMode ? lighticon1 : darkicon1"  class="icon" style="width: 20px; height: 20px;"/>
-        <img  :src="darkMode ? lighticon2 : darkicon2"  class="icon"  style="width: 20px; height: 20px;"/>
+      <div class="d-flex ga-3">
+        <img
+          :src="darkMode ? lighticon1 : darkicon1"
+          class="icon"
+          style="width: 20px; height: 20px"
+        />
+        <img
+          :src="darkMode ? lighticon2 : darkicon2"
+          class="icon"
+          style="width: 20px; height: 20px"
+        />
       </div>
 
-      <!-- Image -->
-      <RouterLink to="/dashboard/profile">
+      <v-menu>
+        <template v-slot:activator="{ props }">
+          <img
+            src="../assets/profile-pic.png"
+            alt="Image"
+            style="width: 50px; height: 50px"
+            class="image"
+            v-bind="props"
+          />
+        </template>
+        <v-list bg-color="sidebarbg">
+          <v-list-item >
+            <v-switch
+              v-model="darkMode"
+              color="primary"
+              class=" top-switch"
+              @change="toggleTheme()"
+            >
+              <!-- Use slots within the render function -->
+              <template v-slot:thumb="{ attrs }">
+                <v-icon v-bind="attrs">
+                  {{ darkMode ? "mdi-weather-sunny" : "mdi-weather-night" }}
+                </v-icon>
+              </template>
+              <template v-slot:track="{ attrs }">
+                <v-icon v-bind="attrs">
+                  {{
+                    darkMode
+                      ? "mdi-moon-waning-crescent"
+                      : "mdi-white-balance-sunny"
+                  }}
+                </v-icon>
+              </template>
+            </v-switch>
+           
+           
 
-    
-      <img
-        src="../assets/profile-pic.png"
-        alt="Image"
-        style="width: 50px; height: 50px"
-        class="image"
-      />
-    </RouterLink>
+          </v-list-item>
+          <v-list-item>
+            <RouterLink class="link" to="/dashboard/profile">
+              <div class="d-flex ga-2 align-center">
+              <img
+                src="../assets/side6.png"
+                style="width: 20px; height: 20px"
+                alt=""
+              />
+              <p>Profile</p>
+            </div>
+            </RouterLink>
+           
+
+          </v-list-item>
+          <v-list-item>
+            <RouterLink class="link" to="/">
+              <div class="d-flex ga-2 align-center">
+              <img
+                src="../assets/side8.png"
+                style="width: 20px; height: 20px"
+                alt=""
+              />
+              <p>Sign Out</p>
+            </div>
+            </RouterLink>
+            
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </div>
   </div>
 </template>
 <script setup>
-import lighticon1 from  '../assets/text.png'
-import darkicon1 from  '../assets/Asset 75@about.png'
-import lighticon2 from '../assets/notification.png'
-import darkicon2 from  '../assets/Asset 76@about.png'
+import lighticon1 from "../assets/text.png";
+import darkicon1 from "../assets/Asset 75@about.png";
+import lighticon2 from "../assets/notification.png";
+import darkicon2 from "../assets/Asset 76@about.png";
 import { useTheme } from "vuetify";
 
 import { ref } from "vue";
-
 
 const theme = useTheme();
 const darkMode = ref(false);
 
 const toggleTheme = () => {
   theme.global.name.value = darkMode.value ? "customDark" : "customLight";
-
- 
 };
-
 </script>
 <script>
 export default {
@@ -128,7 +169,7 @@ export default {
   width: 90px;
 }
 .top-container {
-  background-color:rgb( var(--v-theme-sidebarbg) )!important;
+  background-color: rgb(var(--v-theme-sidebarbg)) !important;
   border-radius: 15px;
 }
 .container {
@@ -137,13 +178,12 @@ export default {
   justify-content: space-between;
   width: 100% !important;
 }
-.icon:hover{
+.icon:hover {
   cursor: pointer;
 }
 .search-field {
   width: 280px !important;
   margin-right: 10px;
-  
 }
 
 .custom-select {
@@ -167,6 +207,10 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.link{
+text-decoration: none;
+color: rgb(var(--v-theme-textColor));
+}
 
 .icons {
   margin-right: 10px;
@@ -179,23 +223,22 @@ export default {
 .image {
   width: 100px;
 }
-.switch-part{
+.switch-part {
   flex-wrap: nowrap;
 }
 @media (max-width: 600px) {
   .search-field {
-  width: 280px !important;
-  margin-right: 0px;
-  
-}}
+    width: 280px !important;
+    margin-right: 0px;
+  }
+}
 @media (max-width: 300px) {
   .search-field {
-  width: 240px !important;
-  margin-right: 0px;
-  
-}
-.switch-part{
-  flex-wrap: wrap;
-}
+    width: 240px !important;
+    margin-right: 0px;
+  }
+  .switch-part {
+    flex-wrap: wrap;
+  }
 }
 </style>
