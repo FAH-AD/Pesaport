@@ -96,7 +96,7 @@
   .table{
     background-color: rgb(var(--v-theme-sidebarbg));
     color: rgb(var(--v-theme-textColor));
-    
+
   }
   .table:hover{
     color: rgb(var(--v-theme-textColor)) !important;
@@ -107,6 +107,12 @@
   .view-btn{
     border-bottom: 1px solid #ffc800;
     font-size: 12px;
+  }
+  @media (max-width: 600px) {
+    .table{
+  
+    font-size: 10px;
+  }
   }
 </style>
   

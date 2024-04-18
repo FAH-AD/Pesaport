@@ -93,7 +93,7 @@
                   required
                 ></v-text-field>
               </v-row>
-              <v-row class="ga-5 flex-lg-row flex-column px-4">
+              <v-row class="ga-5 flex-lg-row flex-nowrap flex-column px-4">
                 <v-text-field
                   variant="outlined"
                   density="compact"
@@ -102,8 +102,16 @@
                   :error-messages="getErrorMessage('personalInfo', 'dob')"
                   :error="isFieldEmpty('personalInfo', 'dob')"
                   required
-                ></v-text-field>
+                  type="date"
+                >
+                
 
+                </v-text-field>
+                <!-- <v-date-picker 
+               
+                ></v-date-picker> -->
+              
+              
                 <v-select
                   variant="outlined"
                   density="compact"
@@ -501,6 +509,8 @@ import icon2 from "../assets/envelope-regular.svg";
 import icon3 from "../assets/house-solid.svg";
 import icon4 from "../assets/file-regular.svg";
 import icon5 from "../assets/lock-solid.svg";
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
 </script>
 <script>
 export default {
@@ -675,6 +685,12 @@ p > span {
 .modal{
   max-width: 200px !important;
 }
+
+.dp__theme_dark {
+    --dp-background-color: rgb(var(--v-theme-sidebarbg));
+    --dp-text-color: #fff;
+    --dp-hover-color: #484848;
+  }
 .address {
   font-weight: bold;
 }

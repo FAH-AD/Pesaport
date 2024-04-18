@@ -18,7 +18,7 @@
           <div
             v-for="(line, index) in leftDescription"
             :key="index"
-            class="flex-column flex-lg-row d-flex align-center mt-4"
+            class=" flex-row d-flex align-center mt-4"
           
             @click="openModal(line)"
           >
@@ -77,7 +77,7 @@
             class="mt-4"
         
           >
-          <div class="flex-column flex-lg-row justify-space-between d-flex ga-2 ">
+          <div class=" flex-nowrap  justify-space-between d-flex ga-2 ">
             <p class="product-head">{{ line.heading }}</p>
             <p class="notification-text">{{ line.text }}</p>
           </div>

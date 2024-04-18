@@ -6,8 +6,8 @@
         <div>{{ subheading }}</div>
       </div>
 
-      <div>
-        <RouterLink :to="activeTab ===2 ? '/dashboard/dashproducts' : '#' ">
+      <div class="d-flex flex-column flex-lg-row ga-2 ga-lg-0">
+        <RouterLink class="d-flex flex-wrap ga-2 link" :to="activeTab ===2 ? '/dashboard/dashproducts' : '#' ">
         <v-btn
           :class="{ 'active-tab': activeTab === index }"
           value=""
@@ -20,15 +20,18 @@
           <img
             :src="tab.icon"
             class="invest-icon mr-1"
-            style="width: 20px; height: 20px"
+           
           />
-          {{ tab.label }}
+        
+            {{ tab.label }}
+      
+      
         </v-btn>
     </RouterLink>
        
         <v-menu location="bottom">
           <template v-slot:activator="{ props }">
-            <v-btn elevation="0" color="primary" dark >
+            <v-btn class="plus-icon" elevation="0" color="primary" dark >
               <v-icon v-bind="props" color="white">mdi-plus</v-icon>
             </v-btn>
           </template>
@@ -325,8 +328,33 @@ export default {
 <style scoped>
 .i-btn {
   border-color: rgb(var(--v-theme-secondary));
-  font-size: 10px;
-  color:rgb(var(--v-theme-textColor))
+ font-size:10px;
+  color:rgb(var(--v-theme-textColor));
+ 
+}
+.invest-icon{
+  width:20px;
+  height:20px;;
+}
+.link{
+  text-decoration:none !important;
+}
+.i-text{
+  text-decoration: none
+}
+
+@media only screen and (max-width: 600px) {
+  .i-btn {
+width: 70px;
+font-size: 7px !important;
+}
+.plus-icon{
+  width:30px;
+}
+.invest-icon{
+  width:10px;
+  height:10px;;
+}
 }
 
 </style>
