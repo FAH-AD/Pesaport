@@ -1,5 +1,5 @@
 <template>
-    <v-card color="sidebarbg" elevation="0" class="ma-2 card pa-4">
+    <v-card color="sidebarbg" elevation="0" class="ma-2 card py-4 px-0 px-lg-4 ">
       <v-card-title class="text-h5">Your networth overview</v-card-title>
       <v-card-text>
         <div class="text-body-2">Total net revenue you have generated.</div>
@@ -42,6 +42,7 @@
   
   <style scoped>
   .card{
+   width: 100%;
     box-shadow: 0.01rem -0.03rem 0px 0.02rem rgba(255, 200, 0, 0.75) !important;
   -webkit-box-shadow: 0.01rem -0.03rem 0px 0.02rem rgba(255, 200, 0, 0.75) !important;
   -moz-box-shadow: 0.01rem -0.03rem 0px 0.02rem rgba(255, 200, 0, 0.75) !important;

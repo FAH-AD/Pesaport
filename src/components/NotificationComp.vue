@@ -2,10 +2,10 @@
   <Stats/>
  <InvestTable/>
 
-  <div class="container">
+  <div class="container mx-0 mx-lg-4 px-0 px-lg-4">
     <!-- activities -->
-    <v-col cols="12" lg="4" class="left-part">
-      <div class="box">
+    <v-col cols="12" lg="4" class="left-part px-0 px-lg-2">
+      <div class="box px-lg-2">
         <div class="d-flex justify-space-between align-center">
           <p>{{ leftHeading }}</p>
           <div class="n-dropdown">
@@ -34,7 +34,7 @@
       </div>
     </v-col>
     <!-- notifications -->
-    <v-col cols="12" lg="4" class="left-part">
+    <v-col cols="12" lg="4" class="left-part px-0 px-lg-2">
       <div class="box">
         <div class="d-flex justify-space-around align-center">
           <p>{{ rightHeading }}</p>
@@ -56,7 +56,7 @@
       </div>
     </v-col>
     <!-- top products -->
-    <v-col cols="12" lg="4" class="left-part">
+    <v-col cols="12" lg="4" class="left-part px-0 px-lg-2">
       <div class="box">
         <div class="d-flex justify-space-between align-center">
           <div>

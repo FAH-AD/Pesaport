@@ -45,6 +45,7 @@ export default {
   flex-direction: column;
   gap: 0.5rem;
   padding: 20px 30px;
+  width: 100%;
   min-width:240px;
   align-items: start;
   background-color: rgb(var(--v-theme-sidebarbg));
@@ -74,12 +75,13 @@ export default {
 
 @media (max-width: 600px) {
   .box-component {
-    width: 320px;
+   width: 100%;
+   padding: 20px 30px;
   }
 }
 @media (max-width: 350px) {
   .box-component {
-    width: 250px;
+    width: 100%;
   }
 }
 

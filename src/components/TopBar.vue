@@ -1,6 +1,6 @@
 <template>
   <div
-    class="d-flex top-container flex-lg-row flex-column-reverse mt-4 mt-lg-0 align-center justify-space-between px-3 ml-4"
+    class="d-flex top-container flex-lg-row flex-column-reverse mt-4 mt-lg-0 align-center justify-space-between px-3 ml-lg-4 ml-0"
   >
     <div class="search-field">
       <!-- Search Text Field -->
@@ -16,7 +16,7 @@
       />
     </div>
     <!-- Custom Select Display -->
-    <div class="d-flex align-center switch-part ga-5">
+    <div class="d-flex align-center w-80 ma-2 ma-lg-4 justify-space-between switch-part ga-5">
       <div class="custom-select" @click="toggleDropdown">
         <img src="../assets/flag.png" alt="" class="flag-icon" />
 

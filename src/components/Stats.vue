@@ -1,7 +1,7 @@
 <template>
-  <div class="d-flex  flex-column flex-lg-row align-center ga-6 ma-4">
+  <div class="d-flex  flex-column flex-lg-row align-center ga-6 mx-lg-4 mx-0 my-4 ">
     <OverviewCard />
-    <div class="d-flex flex-column ga-5">
+    <div class="d-flex w-100 flex-column ga-5">
       <div class="d-flex flex-column flex-lg-row align-center justify-space-between ga-4">
         <StatsCard
           :text="item[0].text"
